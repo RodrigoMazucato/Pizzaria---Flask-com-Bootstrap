@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload de Arquivo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-dark">
+    <div
+      class="container d-flex justify-content-center align-items-center vh-100"
+    >
+      <form
+        class="border rounded bg-light fw-semibold"
+        action="/cadastrar"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <h1 class="text-center mb-3">Pizzaria - Cadastro</h1>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Sabor:</label
+          >
+          <input
+            type="text"
+            class="form-control border-dark"
+            id="exampleFormControlInput1"
+            name="sabor"
+            placeholder="Digite o sabor da pizza..."
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Descrição:</label
+          >
+          <textarea
+            class="form-control border-dark"
+            id="exampleFormControlInput1"
+            name="descricao"
+            rows="2"
+            placeholder="Digite uma descrição para a pizza..."
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="preco" class="form-label">Preço (R$):</label>
+          <input
+            type="number"
+            step="0.01"
+            class="form-control border-dark"
+            id="preco"
+            name="preco"
+            placeholder="Digite o preço da pizza..."
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="formFile" class="form-label"
+            >Escolha um arquivo para enviar</label
+          >
+          <input
+            class="form-control border-dark"
+            type="file"
+            id="formFile"
+            name="file"
+          />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary mt-4">ENVIAR</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+body {
+  font-family: "Poppins";
+}
+
+form {
+  padding: 2rem 3rem;
+  width: 50%;
+}
+
+button {
+  width: 40%;
+}
+
+input {
+  border: 1px solid black;
+}
