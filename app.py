@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect
+import os
 
 class Pizzaria:
     lista = []
@@ -10,6 +11,7 @@ class Pizzaria:
         Pizzaria.lista.append(self)
 
 app = Flask(__name__)
+UPLOAD_FOLDER = 'static/images/upload/'
 
 @app.get('/')
 def exibir_projeto():
@@ -21,10 +23,12 @@ def cadastrar_pizza():
     ingredientes = request.form.get('ingredientes')
     preco = request.form.get('preco')
     file = request.files.get('file')
+    if not os.path.exists(UPLOAD_FOLDER):
+        os.makedirs(UPLOAD_FOLDER)
     if file:
-        file.save(f'static/images/upload/{file.filename}')
+        file.save(os.path.join(UPLOAD_FOLDER, file.filename))
     else:
-        return "Nenhum arquivo selecionado", 400
+        return "Nenhum arquivo selecionado!", 400
     Pizzaria(sabor, ingredientes, preco, file.filename)
     return redirect('/exibir')
 
