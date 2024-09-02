@@ -4,13 +4,17 @@ body {
 }
 
 form {
-  padding: 2rem 3.5rem;
+  max-width: 550px;
+}
+
+form div {
+  font-size: 1rem;
 }
 
 #btn-enviar {
   background-color: rgb(255, 160, 0);
   color: white;
-  width: 40%;
+  max-width: 200px;
 }
 
 #btn-enviar:hover {
