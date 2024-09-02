@@ -22,7 +22,7 @@ def cadastrar_pizza():
     preco = request.form.get('preco')
     file = request.files.get('file')
     if file:
-        file.save(f'static/images/{file.filename}')
+        file.save(f'static/images/upload/{file.filename}')
     else:
         return "Nenhum arquivo selecionado", 400
     Pizzaria(sabor, ingredientes, preco, file.filename)
