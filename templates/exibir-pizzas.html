@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Cardápio Pizzaria</title>
+    <link rel="icon" href="static/images/logo_pizza.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -15,40 +16,50 @@
       rel="stylesheet"
     />
     <style>
-      img {
-        height: 200px;
-        width: 60%;
-        border-radius: 8px;
-      }
       body {
-        font-family: "Poppins";
+        font-family: "Montserrat", sans-serif;
+        background-color: #ff9500;
+      }
+      .container {
+        width: 90%;
       }
     </style>
   </head>
   <body>
-    <h1 class="text-center my-5 fw-bold">Confira nosso cardápio</h1>
     <div class="container">
-      <div class="row d-flex justify-content-between gap-4">
+      <h1 class="text-center my-5 fw-bold text-light">
+        Confira nosso cardápio
+      </h1>
+      {% if not pizzas %}
+      <h4 class="text-center text-light my-5">Nenhuma pizza cadastrada!</h4>
+      {% else %}
+      <div class="row mb-3 g-4">
         {% for pizza in pizzas %}
-        <div class="col">
-          <div class="card px-4 py-3">
-            <h4 class="card-title my-3 text-center">{{pizza.sabor}}</h4>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center">
+          <div class="card px-3 py-2 h-100 border-light">
+            <h3 class="card-title my-3 fw-semibold">{{pizza.sabor}}</h3>
             <img
-              src="../static/images/{{pizza.filename}}.png"
-              class="card-img-top border"
+              src="../static/images/{{pizza.filename}}"
+              class="card-img-top px-1"
               alt="Pizza de {{sabor}}"
+              height="auto"
+              width="100%"
             />
             <div class="card-body">
-              <p class="card-text text-center">
-                <spam class="fw-bold">Preço:</spam>{{pizza.preco}}
+              <p class="card-text fw-semibold" style="font-size: 1.2rem">
+                R${{pizza.preco}}
               </p>
-              <p class="card-text" style="font-size: 0.9rem">
-                {{pizza.descricao}}
+              <p class="card-text" style="font-size: 0.8rem">
+                {{pizza.ingredientes}}
               </p>
             </div>
           </div>
         </div>
-        {% endfor%}
+        {% endfor %}
+      </div>
+      {% endif %}
+      <div class="text-center my-5">
+        <a href="/" class="btn btn-outline-light bt-lg w-25">ADICIONAR PIZZA</a>
       </div>
     </div>
   </body>

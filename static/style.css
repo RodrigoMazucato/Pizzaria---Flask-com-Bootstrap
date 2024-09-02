@@ -7,7 +7,9 @@ form {
   width: 50%;
 }
 
-button {
+#btn-enviar {
+  background-color: #ff9500;
+  color: white;
   width: 40%;
 }
 

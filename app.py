@@ -2,9 +2,9 @@ from flask import Flask, render_template, request, redirect
 
 class Pizzaria:
     lista = []
-    def __init__(self, sabor, descricao, preco, filename):
+    def __init__(self, sabor, ingredientes, preco, filename):
         self.sabor = sabor
-        self.descricao = descricao
+        self.ingredientes = ingredientes
         self.preco = preco
         self.filename = filename
         Pizzaria.lista.append(self)
@@ -18,14 +18,14 @@ def exibir_projeto():
 @app.post('/cadastrar')
 def cadastrar_pizza():
     sabor = request.form.get('sabor')
-    descricao = request.form.get('descricao')
+    ingredientes = request.form.get('ingredientes')
     preco = request.form.get('preco')
     file = request.files.get('file')
     if file:
         file.save(f'static/images/{file.filename}')
     else:
         return "Nenhum arquivo selecionado", 400
-    Pizzaria(sabor, descricao, preco, file.filename)
+    Pizzaria(sabor, ingredientes, preco, file.filename)
     return redirect('/exibir')
 
 @app.get('/exibir')
