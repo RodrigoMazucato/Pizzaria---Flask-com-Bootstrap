@@ -5,10 +5,11 @@ body {
 
 form {
   max-width: 550px;
+  font-size: 1rem;
 }
 
-form div {
-  font-size: 1rem;
+input {
+  border: 1px solid black;
 }
 
 #btn-enviar {
@@ -21,6 +22,12 @@ form div {
   background-color: rgba(255, 160, 0, 0.8);
 }
 
-input {
-  border: 1px solid black;
+@media (max-width: 576px) {
+  #form-pizza {
+    width: 80%;
+  }
+
+  .form-control {
+    font-size: 0.85rem;
+  }
 }
